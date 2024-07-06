@@ -7,6 +7,7 @@ const {
   getCarts,
   createCart,
   addProductToCart,
+  createTicket,
   deleteCart,
   deleteProduct,
   updateProductQuantity,
@@ -17,6 +18,7 @@ router.get('/', getCarts);
 router.get('/:cid', getCartById);
 router.post('/', createCart);
 router.post('/:cid/product/:pid' , authUser , addProductToCart);
+router.post('/:cid/purchace', createTicket)
 router.delete('/:cid', authUser ,deleteCart);
 router.delete('/:cid/products/:pid', authUser ,deleteProduct);
 router.put('/:cid/products/:pid', authUser ,updateProductQuantity);

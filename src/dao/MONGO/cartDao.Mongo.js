@@ -81,6 +81,15 @@ class CartsDaoMongo {
             throw new Error('Error while adding product to cart: ' + error.message)
         }
     }
+
+    async updateCart(cartId, updateData) {
+        try {
+            const cart = await this.model.findByIdAndUpdate(cartId, updateData, { new: true });
+            return cart;
+        } catch (error) {
+            throw new Error('Error while updating cart: ' + error.message);
+        }
+    }
 }
 
 module.exports = CartsDaoMongo

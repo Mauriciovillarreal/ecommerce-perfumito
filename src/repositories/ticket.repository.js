@@ -1,11 +1,13 @@
+const TicketDaoMongo = require('../dao/MONGO/ticketDao.mongo.js');
+
 class TicketRepository {
-    constructor(TicketDao) {
-        this.TicketDao = TicketDao
+    constructor() {
+        this.ticketDao = new TicketDaoMongo()
     }
 
-    getTickets = async () => await this.TicketDao.getAll()
-    getTicket = async (tid) => await this.TicketDao.get(tid)
-    createTicket = async (newTicket) => await this.TicketDao.create(newTicket)
+    getTickets = async () => await this.ticketDao.getAll()
+    getTicket = async (tid) => await this.ticketDao.get(tid)
+    createTicket = async (ticketData) => await this.ticketDao.create(ticketData);
 }
 
 module.exports = TicketRepository
